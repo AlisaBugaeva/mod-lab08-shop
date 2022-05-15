@@ -33,7 +33,7 @@ private:
   int maxBuyers;
   int countBuyers = 1; // покупатели
 
-  int servedCustomers;  //обслуженные покупатели
+  int servedCustomers = 0;  //обслуженные покупатели
   double averageQueueLength = 0;  //средняя длина очереди
   double serviceTime = 0;  //среднее время нахождение покупателя в очереди + на кассе
   double averageCashRegisterWorkingTime;  //среднее время работы кассы

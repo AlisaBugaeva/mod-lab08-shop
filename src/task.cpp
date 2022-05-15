@@ -38,11 +38,11 @@ void Supermarket::serveBuyer(Buyer* _buyer, int _number) {
     std::unique_lock<std::mutex> unqLock(myMutex);
     std::cout << "Cash register " << std::this_thread::get_id() << ": buyer " << _number << " gets product " << i + 1 << '\n';
     unqLock.unlock();
-    servedCustomers++;
     serviceTime += time;
     averageCashRegisterWorkingTime += processingSpeed / workingCashRegisterCount;
     averageCashRegisterNotWorkingTime += processingSpeed / (cashRegisterAmount - workingCashRegisterCount);
   }
+  servedCustomers++;
 }
 
 void Supermarket::serveQueue(std::queue <Buyer*>* _buyers) {

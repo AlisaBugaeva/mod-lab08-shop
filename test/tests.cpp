@@ -62,7 +62,7 @@ TEST(TEST4, refuseProbability) {
   ASSERT_TRUE(supermarket->refuseProbability() < 0.5);
 }
 
-TEST(TEST5, refuseProbability) {
+TEST(TEST5, serviceTime) {
 
   int cashRegisterAmount = 2;
   int flowRate = 500;
