@@ -74,5 +74,5 @@ TEST(TEST5, serviceTime) {
   Supermarket* supermarket = new Supermarket(cashRegisterAmount, flowRate, processingSpeed, averageNumberOfProducts, maxQueueLength, maxBuyers);
   supermarket->run();
 
-  ASSERT_TRUE(supermarket->getServiceTime() <= ((averageNumberOfProducts +5)* processingSpeed));
+  ASSERT_TRUE((supermarket->getServiceTime()) < ((averageNumberOfProducts + 5) * processingSpeed));
 }

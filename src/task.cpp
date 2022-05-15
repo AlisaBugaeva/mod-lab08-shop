@@ -43,9 +43,11 @@ void Supermarket::serveBuyer(Buyer* _buyer, int _number) {
     averageCashRegisterNotWorkingTime += processingSpeed / (cashRegisterAmount - workingCashRegisterCount);
   }
   servedCustomers++;
+
 }
 
 void Supermarket::serveQueue(std::queue <Buyer*>* _buyers) {
+  //int number = 1;
   auto buyer = _buyers->front();
   _buyers->pop();
   serveBuyer(buyer, buyer->number);
@@ -64,6 +66,7 @@ void Supermarket::serveQueue(std::queue <Buyer*>* _buyers) {
 
 void Supermarket::serveSupermarket() {
   for (int i = 0; i < maxBuyers; i++) {
+    countBuyers++;
     if (workingCashRegisterCount <= cashRegisterAmount) {
       auto ptrQ = new std::queue<Buyer*>;
       ptrQ->push(createBuyer(countBuyers));
@@ -75,11 +78,6 @@ void Supermarket::serveSupermarket() {
     else if (buyerQueue.size() < maxQueueLength) {
       buyerQueue.push(createBuyer(countBuyers));
     }
-    else {
-      refuseCount++;
-    }
-
-    countBuyers++;
 
     averageQueueLength += buyerQueue.size();
 
