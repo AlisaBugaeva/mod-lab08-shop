@@ -69,7 +69,7 @@ TEST(TEST5, serviceTime) {
   int processingSpeed = 1000;
   int averageNumberOfProducts = 8;
   int maxQueueLength = 6;
-  int maxBuyers = 10;
+  int maxBuyers = 3;
 
   Supermarket* supermarket = new Supermarket(cashRegisterAmount, flowRate, processingSpeed, averageNumberOfProducts, maxQueueLength, maxBuyers);
   supermarket->run();

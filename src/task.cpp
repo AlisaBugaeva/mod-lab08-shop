@@ -46,20 +46,19 @@ void Supermarket::serveBuyer(Buyer* _buyer, int _number) {
 }
 
 void Supermarket::serveQueue(std::queue <Buyer*>* _buyers) {
-  //int number = 1;
+  auto buyer = _buyers->front();
+  _buyers->pop();
+  serveBuyer(buyer, buyer->number);
+
   while (!buyerQueue.empty()) {
+    std::unique_lock<std::mutex> unqLock(myMutex);
+    _buyers->push(buyerQueue.front());
+    buyerQueue.pop();
+    unqLock.unlock();
 
     auto buyer = _buyers->front();
     _buyers->pop();
     serveBuyer(buyer, buyer->number);
-    //number++;
-
-    if (!buyerQueue.empty()) {
-      std::unique_lock<std::mutex> unqLock(myMutex);
-      _buyers->push(buyerQueue.front());
-      buyerQueue.pop();
-      unqLock.unlock();
-    }
   }
 }
 
