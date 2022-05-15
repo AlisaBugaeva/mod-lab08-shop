@@ -31,7 +31,7 @@ private:
 
   int maxPrice = 50;
   int maxBuyers;
-  int countBuyers = 1; // покупатели
+  int countBuyers = 0; // покупатели
 
   int servedCustomers = 0;  //обслуженные покупатели
   double averageQueueLength = 0;  //средняя длина очереди
