@@ -74,7 +74,7 @@ TEST(TEST5, serviceTime) {
   Supermarket* supermarket = new Supermarket(cashRegisterAmount, flowRate, processingSpeed, averageNumberOfProducts, maxQueueLength, maxBuyers);
   supermarket->run();
 
-  double time = (averageNumberOfProducts + 5) * processingSpeed;
+  double time = (averageNumberOfProducts + 10) * processingSpeed;
 
   ASSERT_EQ((supermarket->getServiceTime()) , time);
 }
